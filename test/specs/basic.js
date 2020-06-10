@@ -13,6 +13,24 @@ describe('Test RFL', () => {
         expect(actualHeader).toEqual(expected);
     });
 
+    it('Verify that the Total result "Total " is present', () => {
+        const actualHeader = $('h3[class="total-count"]').getText();
+        const expected = /Total:\s\d+/;
+        expected.test(actualHeader);
+    });
+
+    it('Verify that the Total result initially is "0"', () => {
+        const actual = $('h3[class="total-count"]').getText();
+        const expected = 'Total: 0';
+        expect(actual).toEqual(expected);
+    });
+
+    it('Verify that the Counter name "1.Default Counter"  is present ', () => {
+        const actual = $('//div/div/div/div//h3').getText();
+        const expected = '1. Default Counter';
+        expect(actual).toEqual(expected);
+    });
+
 
 
 
